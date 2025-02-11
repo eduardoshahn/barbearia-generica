@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbearia Genérica</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        .titulo {
+            margin: 0;
+            text-align: right;
+        }
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex: 1;
+        }
+        .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+        header a {
+            color: white;
+            text-decoration: none;
+        }
+        nav {
+            background-color: #444;
+            padding: 0.5rem;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        section {
+            padding: 20px;
+        }
+        .services {
+            position: relative;
+            color: white;
+            width: 100%;
+            height: 500px;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-sizing: border-box;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .services::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('./img/homem\ barba.avif') no-repeat center center;
+            background-size: cover;
+            opacity: 0.4;
+            z-index: 0;
+        }
+        .services h2, .services ul {
+            position: relative;
+            z-index: 1;
+        }
+        .contact {
+            background-color: white;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 800px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        #ig {
+            width: 24px;
+            height: 24px;
+        }
+        #wpp{
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1 class="titulo">Barbearia Genérica</h1>
+
+            <div class="nav-links">
+                <a href="#services">Serviços</a>
+                <a href="#contact">Contato</a>
+                <a href="#">Quem Somos</a>
+                <a href="#">Agende seu Horário</a>
+                <a href="#">Galeria</a>
+            </div>
+
+            <div class="social-icons">
+                <i class="fa fa-whatsapp" style="font-size:24px"></i>
+                <i class="fa fa-instagram" style="font-size:24px"></i>
+            </div>
+        </div>
+    </header>
+    <section id="services" class="services">
+        <h2>Nome</h2>
+        <h2>Barbearia</h2>
+    </section>
+    <section id="contact" class="contact">
+        <h2>Contato</h2>
+        <form id="contactForm">
+            <label for="name">Nome:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="message">Mensagem:</label><br>
+            <textarea id="message" name="message" rows="4" required></textarea><br><br>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+    <footer>
+        <p>&copy; 2024 Barbearia Genérica - Todos os direitos reservados</p>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Obrigado por entrar em contato! Responderemos em breve.');
+        });
+    </script>
+</body>
+</html>
