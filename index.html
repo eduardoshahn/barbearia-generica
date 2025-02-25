@@ -4,164 +4,215 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Barbearia Genérica</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #ececec;
+            color: #333;
         }
         header {
-            background-color: #333;
+            background-color: #222;
             color: white;
-            padding: 1rem;
+            padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-        }
-        .titulo {
-            margin: 0;
-            text-align: right;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
         }
         .nav-links {
             display: flex;
+            gap: 20px;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .nav-links a:hover {
+            color: #f4b400;
+        }
+        .social-icons a {
+            color: white;
+            margin-left: 10px;
+            font-size: 20px;
+            transition: 0.3s;
+        }
+        .social-icons a:hover {
+            color: #f4b400;
+        }
+        .hero{
+            background: url('./img/homem\ barba.avif') no-repeat center center/cover;
+            height: 400px;
+            display: flex;
             justify-content: center;
             align-items: center;
-            gap: 15px;
-            flex: 1;
-        }
-        .social-icons {
-            display: flex;
-            gap: 10px;
-        }
-        header a {
             color: white;
-            text-decoration: none;
-        }
-        nav {
-            background-color: #444;
-            padding: 0.5rem;
             text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
         }
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-        }
-        section {
-            padding: 20px;
+        .car-img {
+            display: block;
+            margin: 0 auto;
+            width: 150px; /* Ajuste o tamanho conforme necessário */
+            height: 150px; /* Mesmo valor da largura para manter a forma de círculo */
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
         }
         .services {
-            position: relative;
-            color: white;
-            width: 100%;
-            height: 500px;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            box-sizing: border-box;
-            overflow: hidden;
+            text-align: center;
+            padding: 50px 20px;
+        }
+        .services h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .service-list {
             display: flex;
-            align-items: center;
+            flex-wrap: wrap;
             justify-content: center;
+            gap: 20px;
+            max-width: 450px; /* Ajuste conforme necessário */
+            margin: 0 auto;
         }
-        .services::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('./img/homem\ barba.avif') no-repeat center center;
-            background-size: cover;
-            opacity: 0.4;
-            z-index: 0;
+        .service-row {
+            display: flex;
+            gap: 20px;
         }
-        .services h2, .services ul {
-            position: relative;
-            z-index: 1;
-        }
-        .contact {
-            background-color: white;
-            margin: 20px auto;
+        .service-item {
+            background: white;
             padding: 20px;
             border-radius: 8px;
-            max-width: 800px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            width: 200px;
+            text-align: center;
+            transition: 0.3s;
+        }
+        .service-item:hover {
+            transform: translateY(-5px);
         }
         footer {
-            background-color: #333;
+            background: #222;
             color: white;
             text-align: center;
             padding: 1rem;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
+            margin-top: 30px;
         }
-        #ig {
-            width: 24px;
-            height: 24px;
+        .btn {
+            border: none;
+            font-family: 'Lato';
+            font-size: inherit;
+            color: inherit;
+            background: none;
+            cursor: pointer;
+            padding: 25px 80px;
+            display: inline-block;
+            margin: 15px 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            outline: none;
+            position: relative;
+            -webkit-transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            transition: all 0.3s;
         }
-        #wpp{
-            width: 20px;
-            height: 20px;
+        .btn:after {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            -webkit-transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            transition: all 0.3s;
+        }
+
+        /* Pseudo elements for icons */
+        .btn:before {
+            font-family: 'FontAwesome';
+            speak: none;
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            line-height: 1;
+            position: relative;
+            -webkit-font-smoothing: antialiased;
+        }
+
+
+        /* Icon separator */
+        .btn-sep {
+            padding: 25px 60px 25px 120px;
+        }
+
+        .btn-sep:before {
+            background: rgba(0,0,0,0.15);
+        }
+        .btn-3 {
+            background: #e74c3c;
+            color: #fff;
+        }
+
+        .btn-3:hover {
+            background: #c0392b;
+        }
+
+        .btn-3:active {
+            background: #c0392b;
+            top: 2px;
+        }
+
+        .btn-3:before {
+            position: absolute;
+            height: 100%;
+            left: 0;
+            top: 0;
+            line-height: 3;
+            font-size: 140%;
+            width: 60px;
+        }
+        .icon-heart:before {
+            content: "\f133";
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="header-content">
-            <h1 class="titulo">Barbearia Genérica</h1>
-
-            <div class="nav-links">
-                <a href="#services">Serviços</a>
-                <a href="#contact">Contato</a>
-                <a href="#">Quem Somos</a>
-                <a href="#">Agende seu Horário</a>
-                <a href="#">Galeria</a>
-            </div>
-
-            <div class="social-icons">
-                <i class="fa fa-whatsapp" style="font-size:24px"></i>
-                <i class="fa fa-instagram" style="font-size:24px"></i>
-            </div>
+        <div class="nav-links">
+            <a href="#services">Serviços</a>
+            <a href="#contact">Contato</a>
+            <a href="#about">Quem Somos</a>
+        </div>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
         </div>
     </header>
-    <section id="services" class="services">
-        <h2>Nome</h2>
-        <h2>Barbearia</h2>
+    <section class="hero">
+        Bem-vindo à Barbearia Genérica
     </section>
-    <section id="contact" class="contact">
-        <h2>Contato</h2>
-        <form id="contactForm">
-            <label for="name">Nome:</label><br>
-            <input type="text" id="name" name="name" required><br><br>
+    <section id="services" class="services">
+        <h2>Nossos Serviços</h2>
+        <div class="service-list">
+            <div class="service-row">
+                <div class="service-item"><img class="car-img" src="./img/carousel4.jpg" alt="Selagem">Corte de cabelo clássico</div>
+                <div class="service-item"><img class="car-img" src="./img/carousel3.jpg" alt="Selagem">Barba completa</div>
+            </div>
+            <div class="service-row">
+                <div class="service-item"><img class="car-img" src="./img/carousel1.jpg" alt="Selagem">Aparar e modelar barba</div>
+                <div class="service-item"><img class="car-img" src="./img/carousel2.jpg" alt="Selagem">Hidratação capilar</div>
+            </div>
 
-            <label for="email">Email:</label><br>
-            <input type="email" id="email" name="email" required><br><br>
-
-            <label for="message">Mensagem:</label><br>
-            <textarea id="message" name="message" rows="4" required></textarea><br><br>
-
-            <button type="submit">Enviar</button>
-        </form>
+            <button class="btn btn-3 btn-sep icon-heart">Agendar</button>
+        </div>
     </section>
     <footer>
         <p>&copy; 2024 Barbearia Genérica - Todos os direitos reservados</p>
     </footer>
-
-    <script>
-        document.getElementById('contactForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            alert('Obrigado por entrar em contato! Responderemos em breve.');
-        });
-    </script>
 </body>
 </html>
